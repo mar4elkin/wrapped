@@ -15,7 +15,7 @@ import App from './App';
 import Auth from './views/Auth';
 import Feed from './views/Feed';
 import Profile from './views/Profile';
-import PlayListTracks from './components/PlayListTracks';
+import PlayList from './views/PlayList';
 
 import './index.css';
 import '@fontsource/roboto/300.css';
@@ -39,6 +39,7 @@ const darkTheme = createTheme({
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
+
 root.render(
   <React.StrictMode>
     <Provider store={store}>
@@ -48,7 +49,7 @@ root.render(
             <Route path="/" element={<App />}>
               <Route index element={<Feed />} />
               <Route path='profile' element={<Profile />} />
-              <Route path='playlist' element={<PlayListTracks />} />
+              <Route path='playlist/:user/:kind' element={<PlayList />} />
             </Route>
           <Route path="auth" element={<Auth />} />
         </Routes>

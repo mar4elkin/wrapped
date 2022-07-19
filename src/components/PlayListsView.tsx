@@ -1,11 +1,7 @@
 import Paper from '@mui/material/Paper';
-import { styled, SxProps } from '@mui/material/styles';
+import { styled } from '@mui/material/styles';
 import { Link } from 'react-router-dom';
-
-interface PlayListsViewProps {
-  style?: SxProps;
-  link: string;
-}
+import { PlayListsViewProps } from '../interfaces/CPlayListView';
 
 const Item = styled(Paper)(({ theme }) => ({
   ...theme.typography.body2,

@@ -52,3 +52,11 @@ def f_get_feed():
         return feed
     except Exception as e:
         return str(f'{e} - try to set your token by using /token/update/')
+
+# @app.route("/feed/")
+# def f_get_feed():
+#     try:
+#         profile = client
+#         return feed
+#     except Exception as e:
+#         return str(f'{e} - try to set your token by using /token/update/')

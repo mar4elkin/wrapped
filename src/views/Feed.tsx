@@ -2,10 +2,7 @@ import { useEffect, useState } from 'react';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import PlayListViews from '../components/PlayListsView';
-
-interface GenPlaylists {
-  data?: object;
-}
+import { GenPlaylists } from '../interfaces/VFeed';
 
 export default function Feed() {
   
@@ -17,7 +14,6 @@ export default function Feed() {
     .then(res => res.json())
     .then(data => {
       setGenPlaylists(data.generated_playlists)
-      console.log(data.generated_playlists)
     })
     .catch(err => console.warn(err))
   }, [])
@@ -34,10 +30,9 @@ export default function Feed() {
         justifyContent: 'flex-start'
       }}
       >
-        {/* <PlayListViews key={index} link='/playlist' style={{background: '#fff'}} /> */}
-        {getGenPlaylists.map((el: any, index: any) => {
-          let img = `https://avatars.yandex.net${el.data.cover.dir}200x200`
-          return <PlayListViews key={index} link='/playlist' style={{
+        {getGenPlaylists.map((el: GenPlaylists, index: number) => {
+          let img = `https://avatars.yandex.net${el.data.cover.dir}200x200` 
+          return <PlayListViews key={index} link={`/playlist/${el.data.owner.login}/${el.data.kind}`} style={{
             background: `url(${img})`,
             backgroundSize: 'cover'
           }} />
